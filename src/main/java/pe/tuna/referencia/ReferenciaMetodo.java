@@ -1,5 +1,8 @@
 package pe.tuna.referencia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReferenciaMetodo {
     /*
     Tipos de metodos de Referencia
@@ -34,5 +37,18 @@ public class ReferenciaMetodo {
         ITrabajo iTrabajo2MR = User::referenciaAMetodoStatico;
 
         iTrabajo2MR.accion();
+
+        ITrabajoString iTrabajoString = palabra -> palabra.toUpperCase();
+        ITrabajoString iTrabajoStringRM = String::toUpperCase;
+        System.out.println(iTrabajoString.accion("Miguel"));
+
+        List<User> userList = new ArrayList<User>();
+        userList.add(new User("Miguel 1"));
+        userList.add(new User("Miguel 2"));
+        userList.add(new User("Miguel 3"));
+
+        userList.forEach(nombre -> nombre.mostrarNombre());
+        userList.forEach(User::mostrarNombre);
+
     }
 }
